@@ -31,6 +31,7 @@
 	// insert data of new user
 	$query = "INSERT INTO users VALUES(NULL,'$login', '$firstname', '$secondname', '$regkey', '$date', NULL, '$password', '$email', '$address')"; 
 	mysql_query($query) or die(mysql_error()); mysql_close();
+	echo "You have successfully registered";
 
 
 	/*

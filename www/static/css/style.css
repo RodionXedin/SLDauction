@@ -1,0 +1,36 @@
+html {
+    background: #fff;
+}
+
+body {
+    font: 10pt Verdana;
+}
+
+input:focus{
+    outline:none;
+    border-color:rgba(0, 61, 240,.75);
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    box-shadow:0 0 8px rgba(0, 61, 240,.5);
+    -moz-box-shadow:0 0 8px rgba(0, 61, 240,.5);
+    -webkit-box-shadow:0 0 8px rgba(0, 61, 240,.5);
+}
+input{
+    border:1px solid #aaa;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    transition:border linear .2s,box-shadow linear .2s;
+    -moz-transition:border linear .2s,-moz-box-shadow linear .2s;
+    -webkit-transition:border linear .2s,-webkit-box-shadow linear .2s;
+}
+
+#main {
+    margin-left: 400px;
+}
+
+#title {
+    font: 14pt Verdana;
+    color: #666;
+}
