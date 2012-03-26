@@ -72,7 +72,7 @@ function validateForm(index)
   		data = document.forms['registerForm']['email'].value;
 		errorDiv = document.getElementById('emerr');
 
-		if ((data == null || data == "" || !isEmailCorrect(data)) && index > 0) {
+		if ((data == null || data == "" || !isEmailCorrect(data))) {
 	  		errorDiv.style.display = "block";
 	  		v6 = false;
 	  	} else {
