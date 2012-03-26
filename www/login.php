@@ -7,9 +7,6 @@ if (isset($_POST['login']) && isset($_POST['password']))
     $login = mysql_real_escape_string($_POST['login']);
     $password = ($_POST['password']);
 
-    // делаем запрос к БД
-    // и ищем юзера с таким логином и паролем
-
     $query = "SELECT `id`
             FROM `users`
             WHERE `username`='{$login}' AND `password`='{$password}'
@@ -22,7 +19,8 @@ if (isset($_POST['login']) && isset($_POST['password']))
 
     }
     else {
-        die('Такой логин с паролем не найдены в базе данных. И даём ссылку на повторную авторизацию.');
+        header('Refresh: 1; URL=http://www.sldauction/index.php');
+        die('Такой логин с паролем не найдены в базе данных');
     }
 }
 ?>

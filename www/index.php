@@ -29,7 +29,7 @@ echo '
         <tr>
             <td></td>
             <td><input type="submit" value="Войти" /></td>
-            <td><input type="button" value="Зарегистривоваться" onclick="location.href=\'register.php\'" />
+            <td><input type="button" value="Зарегистрироваться" onclick="location.href=\'register.php\'" style="margin-left:-100px"/>
         </tr>
     </table>
 </form>

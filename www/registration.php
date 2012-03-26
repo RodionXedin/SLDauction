@@ -39,7 +39,7 @@
 	mysql_query($query) or die(mysql_error()); mysql_close();																					  // 			  2)Confirmation date(filled on	
 																																				  //			  mail delivery)
      //======================================================
-	header('Refresh:3;Location:index.php');
+	header('Location:index.php');
 echo "You have successfully registered , now you will be redirected to the main page. wait please"; 
 	/*
 		======================================================
