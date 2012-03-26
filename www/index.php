@@ -19,10 +19,10 @@
         Фамилия: <br><input type="text" name="secondname" maxlength="20" oninput="validateForm(3)"><br>
         <div id="snerr" style="color: red; display: none">Длина фамилии должна быть от 2 до 20 символов.</div>
 
-        Пароль: <br><input type="text" name="password" maxlength="25" oninput="validateForm(4)"><br>
+        Пароль: <br><input type="password" name="password" maxlength="25" oninput="validateForm(4)"><br>
         <div id="perr" style="color: red; display: none">Длина пароля должна быть от 6 до 25 символов.</div>
 
-        Повторите пароль: <br><input type="text" name="password2" maxlength="25" oninput="validateForm(5)"><br>
+        Повторите пароль: <br><input type="password" name="password2" maxlength="25" oninput="validateForm(5)"><br>
         <div id="rperr" style="color: red; display: none">Пароли не совпадают.</div>
 
         E-mail: <br><input type="text" name="email" maxlength="20" oninput="validateForm(6)"><br>
