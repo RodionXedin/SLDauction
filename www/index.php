@@ -3,7 +3,7 @@ session_start();
 if (isset($_SESSION['user_id'])) {
 echo "Welcome registered user which uses that damn cookies , your session is active and working ! YEAH BABY!!";
 }
-//else
+else
 echo '
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
 <html xmlns="http://www.w3.org/1999/xhtml">
