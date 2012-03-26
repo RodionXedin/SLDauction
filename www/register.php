@@ -1,62 +1,39 @@
-<?php 
-	include "lib/libmail.php";
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html/php"; charset="utf8">
+    <link rel=stylesheet href='static/css/style.css'>
+    <script src="static/js/reg-validation.js" ></script>
+    <title>Registration</title>
+  </head>
+  <body>
+    
+    <div id="main">
+      <form action="registration.php" method="post" name="registerForm" onSubmit="return TestDataCheck()">
+        <div id="title">Регестрация </div><br>
+        Имя пользователя: <br><input type="text" name="login" maxlength="20" oninput="validateForm(1)"><br>
+        <div id="lerr" style="color: red; display: none">Длина имени пользователя должна быть от 5 до 20 символов.</div>
 
-	mysql_connect("localhost","root","") OR DIE("Не могу создать соединение "); 
-	mysql_select_db("SLDauct") or die(mysql_error());
+        Имя: <br><input type="text" name="firstname" maxlength="20" oninput="validateForm(2)"><br>
+        <div id="fnerr" style="color: red; display: none">Длина имени быть от 2 до 20 символов.</div>
 
-	/*
-		======================================================
-		FILLING DATABASE FIELDS
-		======================================================
-	
-	*/
-	$login = $_POST["login"];
-	$firstname = $_POST["firstname"];
-	$secondname = $_POST["secondname"];
-	$password = $_POST["password"];
-	$repeat_password =$_POST["password2"];
-	$email = $_POST["email"];
-	$address = $_POST["address"];
-	$date = getdate();
-	$date = $date["year"].'-'.$date["mon"].'-'.$date["mday"];
-	$regkey = "123";
+        Фамилия: <br><input type="text" name="secondname" maxlength="20" oninput="validateForm(3)"><br>
+        <div id="snerr" style="color: red; display: none">Длина фамилии должна быть от 2 до 20 символов.</div>
 
-	// check that user with that username is not exist
-	$query = "select * from users where username = '".mysql_escape_string($login)."'";
-	$match = mysql_query($query);
-	$count = 0;
-	while($myrow = mysql_fetch_array ($match)) 					/*Cheking for login match in database*/
-  	{ 
-  		$count++;
-  	}
-  	if ($count != 0) 
-  		die("Login already taken");
-	elseif ($password !== $repeat_password) 
-		die("Пароли не совпадают");
-	
-	// insert data of new user
-	$query = "INSERT INTO users VALUES(NULL,'$login', '$firstname', '$secondname', '$regkey', '$date', NULL, '$password', '$email', '$address')"; //NULL FIELDS : 1)ID(autofilled :counter)
-	mysql_query($query) or die(mysql_error()); mysql_close();																					  // 			  2)Confirmation date(filled on	
-	echo "You have successfully registered";																									  //				mail delivery)
-     //======================================================
+        Пароль: <br><input type="password" name="password" maxlength="25" oninput="validateForm(4)"><br>
+        <div id="perr" style="color: red; display: none">Длина пароля должна быть от 6 до 25 символов.</div>
 
-	/*
-		======================================================
-		SEND MAIL 
-		======================================================
-	
-	*/
-		
-	$m= new Mail; 
-	$m->From( "sldauct@gmail.com" ); 
-	$m->To( $email ); 
-	$m->Subject( "Registration confirmation" );
-	$m->Body( "Greetings ".$firstname.",we welcome you at SLDauct , we hope that you will enjoy our auction .Real -world mail has been sent to your address , please wait for it to come to you");    
-	$m->Priority(3) ;    
-	$m->smtp_on( "relay.jangosmtp.net", "SLDauctAdmin", "544710JJ",587) ;  
-	$m->Send();    
+        Повторите пароль: <br><input type="password" name="password2" maxlength="25" oninput="validateForm(5)"><br>
+        <div id="rperr" style="color: red; display: none">Пароли не совпадают.</div>
 
-	
-	//	======================================================
-	
-?>
+        E-mail: <br><input type="text" name="email" maxlength="320"><br>
+        <div id="emerr" style="color: red; display: none">Введен некорректный e-mail адрес.</div>
+
+        Адрес: <br><input type="text" name="address" maxlength="50"><br>
+        <div id="aderr" style="color: red; display: none">Длина адреса должна быть от 0 до 50 символов.</div>
+
+        <input id="sub" type="submit" value="Зарегистрироваться" style="cursor: pointer;"><br>
+      </form>
+    </div>
+  </body>
+</html>
