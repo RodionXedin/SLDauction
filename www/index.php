@@ -25,7 +25,7 @@
         Повторите пароль: <br><input type="password" name="password2" maxlength="25" oninput="validateForm(5)"><br>
         <div id="rperr" style="color: red; display: none">Пароли не совпадают.</div>
 
-        E-mail: <br><input type="text" name="email" maxlength="320" oninput="validateForm(6)"><br>
+        E-mail: <br><input type="text" name="email" maxlength="320"><br>
         <div id="emerr" style="color: red; display: none">Введен некорректный e-mail адрес.</div>
 
         Адрес: <br><input type="text" name="address" maxlength="50"><br>
