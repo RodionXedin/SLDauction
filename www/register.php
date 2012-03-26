@@ -4,6 +4,12 @@
 	mysql_connect("localhost","root","") OR DIE("Не могу создать соединение "); 
 	mysql_select_db("SLDauct") or die(mysql_error());
 
+	/*
+		======================================================
+		FILLING DATABASE FIELDS
+		======================================================
+	
+	*/
 	$login = $_POST["login"];
 	$firstname = $_POST["firstname"];
 	$secondname = $_POST["secondname"];
@@ -19,7 +25,7 @@
 	$query = "select * from users where username = '".mysql_escape_string($login)."'";
 	$match = mysql_query($query);
 	$count = 0;
-	while($myrow = mysql_fetch_array ($match)) 
+	while($myrow = mysql_fetch_array ($match)) 					/*Cheking for login match in database*/
   	{ 
   		$count++;
   	}
@@ -29,29 +35,28 @@
 		die("Пароли не совпадают");
 	
 	// insert data of new user
-	$query = "INSERT INTO users VALUES(NULL,'$login', '$firstname', '$secondname', '$regkey', '$date', NULL, '$password', '$email', '$address')"; 
-	mysql_query($query) or die(mysql_error()); mysql_close();
-	echo "You have successfully registered";
-
+	$query = "INSERT INTO users VALUES(NULL,'$login', '$firstname', '$secondname', '$regkey', '$date', NULL, '$password', '$email', '$address')"; //NULL FIELDS : 1)ID(autofilled :counter)
+	mysql_query($query) or die(mysql_error()); mysql_close();																					  // 			  2)Confirmation date(filled on	
+	echo "You have successfully registered";																									  //				mail delivery)
+     //======================================================
 
 	/*
 		======================================================
 		SEND MAIL 
 		======================================================
+	
 	*/
-	/*
-	$m= new Mail; // начинаем 
-	$m->From( "" ); // от кого отправляется почта 
-	$m->To( "" ); // кому адресованно
-	$m->Subject( "Тема сообщения" );
-	$m->Body( "");   
-	//$m->Bcc( "bcopy@asd.com"); // скрытая копия отправится по этому адресу
-	$m->Priority(3) ;    // приоритет письма
-	//$m->Attach( "asd.gif","", "image/gif" ) ; // прикрепленный файл 
-	$m->smtp_on( "relay.jangosmtp.net", "SLDauctAdmin", "544710JJ",587) ; // если указана эта команда, отправка пойдет через SMTP 
-	$m->Send();    // а теперь пошла отправка
+		
+	$m= new Mail; 
+	$m->From( "sldauct@gmail.com" ); 
+	$m->To( $email ); 
+	$m->Subject( "Registration confirmation" );
+	$m->Body( "Greetings ".$firstname.",we welcome you at SLDauct , we hope that you will enjoy our auction .Real -world mail has been sent to your address , please wait for it to come to you");    
+	$m->Priority(3) ;    
+	$m->smtp_on( "relay.jangosmtp.net", "SLDauctAdmin", "544710JJ",587) ;  
+	$m->Send();    
 
-	echo "Показывает исходный текст письма:<br><pre>", $m->Get(), "</pre>";
-		======================================================
-	*/
+	
+	//	======================================================
+	
 ?>
