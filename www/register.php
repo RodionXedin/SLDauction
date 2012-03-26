@@ -25,10 +25,10 @@ elseif ($password !== $password2) die("Пароли не совпадают");
 $query = "INSERT INTO users VALUES(NULL,'$login','$firstname','$secondname','$regkey','$date',NULL,'$password','$email','$address')"; 
 
 $m= new Mail; // начинаем 
-$m->From( "sergey.parahin@gmail.com" ); // от кого отправляется почта 
-$m->To( "vladimir.sinkov@gmail.com" ); // кому адресованно
+$m->From( "" ); // от кого отправляется почта 
+$m->To( "" ); // кому адресованно
 $m->Subject( "Тема сообщения" );
-$m->Body( "я тайно тебя люблю" );    
+$m->Body( "");   
 //$m->Bcc( "bcopy@asd.com"); // скрытая копия отправится по этому адресу
 $m->Priority(3) ;    // приоритет письма
 //$m->Attach( "asd.gif","", "image/gif" ) ; // прикрепленный файл 
