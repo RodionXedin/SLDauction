@@ -3,6 +3,11 @@ html {
 }
 
 body {
+    margin: 0px;
+    font: 10pt Verdana;
+}
+
+tr {
     font: 10pt Verdana;
 }
 
@@ -26,8 +31,31 @@ input{
     -webkit-transition:border linear .2s,-webkit-box-shadow linear .2s;
 }
 
+#container {
+    margin: 0px;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+#header {
+    border-top: 4px solid #00CC66;
+    border-bottom: 1px solid #EEE0E5;
+    height: 100px;
+}
+
 #main {
-    margin-left: 400px;
+    padding: 20px 10px 40px 10px;
+    margin-top: 0px;
+}
+
+#container {
+    -moz-box-shadow: 0 3px 10px rgba(0,0,0,0.3); /* Для Firefox */
+    -webkit-box-shadow: 0 3px 10px rgba(0,0,0,0.3); /* Для Safari и Chrome */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3); /* Параметры тени */
+}
+
+#login {
+    width: 300px;
 }
 
 #title {

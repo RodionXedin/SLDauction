@@ -19,8 +19,8 @@ if (isset($_POST['login']) && isset($_POST['password']))
 
     }
     else {
-        header('Refresh: 1; URL=http://www.sldauction/index.php');
-        die('Такой логин с паролем не найдены в базе данных');
+        header('Refresh: 4; URL=http://www.sldauction/index.php');
+        die('Такой логин с паролем не найдены в базе данных. Вы будете перенаправлены на главную странцу сайта через 4 секудны.');
     }
 }
 ?>

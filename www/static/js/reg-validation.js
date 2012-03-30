@@ -14,6 +14,19 @@ function isEmailCorrect(email) {
 	}
 }
 
+function verifyLogin() {
+	data = document.forms['registerForm']['login'].value;
+	errorDiv = document.getElementById('lerr');
+	var re = /^[0-9a-zA-Z-_&;:.?]+$/;
+	if(re.test(data) && checkData('login', 'lerr', 5, 20)) {
+		errorDiv.style.display = "none";
+		return true;
+	} else {
+		errorDiv.style.display = "block";
+		return false;
+	}
+}
+
 function checkData(input, errorDivId, min, max) {
 	data = document.forms['registerForm'][input].value;
 	errorDiv = document.getElementById(errorDivId);
@@ -49,7 +62,7 @@ function comparePasswords(min, max) {
 function validateForm(index)
 {
 	if(index == 1) {
-		v1 = checkData('login', 'lerr', 5, 20);
+		v1 = verifyLogin(); 
   	}
 
   	if(index ==  2) {

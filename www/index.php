@@ -1,20 +1,33 @@
 <?php
 session_start();
-if (isset($_SESSION['user_id'])) {
-echo "Welcome registered user which uses that damn cookies , your session is active and working ! YEAH BABY!!";
-}
-else
-echo '
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
-<html xmlns="http://www.w3.org/1999/xhtml">
-<html>
+?>
 <head>
-     <meta http-equiv="Content-Type" content="text/html/php"; charset="utf8">
-    <link rel=stylesheet href=\'static/css/style.css\'>
-    <script src="static/js/reg-validation.js" ></script>
-    <title>SLDauction</title>  
+    <meta http-equiv="Content-Type" content="text/html/php"; charset="utf8">
+    <link rel=stylesheet href='static/css/style.css'>
+    <title>Main page</title>    
 </head>
-<body>
+<div id="container">
+<div id="header" align="right">
+<div id="login" align="left">
+<?php
+if (isset($_SESSION['user_id'])) {
+    mysql_connect("localhost","root","") OR DIE("DATABASE EXCEPTION."); 
+    mysql_select_db("SLDauct") or die(mysql_error());
+
+    $id = $_SESSION['user_id'];
+    $query = "SELECT `username` FROM `users` WHERE `id`='{$id}' LIMIT 1";
+    $result = mysql_query($query) or die(mysql_error());
+    if (mysql_num_rows($result) == 1) {
+        $row = mysql_fetch_assoc($result);
+        echo 'Welcome <b>'.$row['username'].'</b>!';
+    }
+?>
+    <br><a href="logout.php">Выйти</a>
+<?php
+}
+else {
+?>
+
 <form action="login.php" method="post">
 
     <table>
@@ -28,11 +41,16 @@ echo '
         </tr>
         <tr>
             <td></td>
-            <td><input type="submit" value="Войти" /></td>
-            <td><input type="button" value="Зарегистрироваться" onclick="location.href=\'register.php\'" style="margin-left:-100px"/>
+            <td><input type="submit" value="Войти" style="cursor: pointer;"/></td>
+            <td><input type="button" value="Зарегистрироваться" onclick="location.href='/register.php'" style="margin-left:-100px; cursor: pointer;"/>
         </tr>
     </table>
 </form>
-</body>
-</html>'
+
+<?php
+}
 ?>
+</div></div>
+<div id="main">
+Main Page!<br><br><br><br><br><br><br>
+</div></div>
