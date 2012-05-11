@@ -18,7 +18,7 @@ if (!isset($_SESSION['user_id'])) {
         <div id="main">
           <br><a href="/">На главную</a><br><br>
           <form action="registration.php" method="post" name="registerForm" onSubmit="return TestDataCheck()">
-            <div id="title">Регестрация </div><br>
+            <div id="title">Регистрация </div><br>
             Имя пользователя: <br><input type="text" name="login" maxlength="20" oninput="validateForm(1)"><br>
             <div id="lerr" style="color: red; display: none">Длина имени пользователя должна быть от 5 до 20 символов.</div>
 
