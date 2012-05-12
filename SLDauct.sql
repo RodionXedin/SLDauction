@@ -44,8 +44,8 @@ CREATE TABLE items (
   description longtext,
   manufacturer text NOT NULL,
   name text NOT NULL,
-  condition varchar(255) DEFAULT NULL,
-  last_bid_id int(11) REFERENCES users(id),
-  last_bid int(11),
+  conditionofitem varchar(255) DEFAULT NULL,
+  last_bid_id int(11) NOT NULL REFERENCES users(id),
+  last_bid int(11) DEFAULT NULL ,
   PRIMARY KEY (id)
 ) DEFAULT CHARSET=utf8;
