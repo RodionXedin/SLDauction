@@ -22,6 +22,7 @@ CREATE TABLE users (
 -- ----------------------------
 -- Table structure for categories
 -- ----------------------------
+DROP TABLE IF EXISTS categories;
 CREATE TABLE categories (
   id int(11) NOT NULL AUTO_INCREMENT,
   name text NOT NULL,
@@ -32,7 +33,7 @@ CREATE TABLE categories (
 -- ----------------------------
 -- Table structure for items
 -- ----------------------------
-
+DROP TABLE IF EXISTS items;
 CREATE TABLE items (
   id int(11) NOT NULL AUTO_INCREMENT,
   owner_id int(11) NOT NULL REFERENCES users(id),
