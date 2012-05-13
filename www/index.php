@@ -1,5 +1,6 @@
 <?php
 include "search.php";
+include "paginator.php";
 session_start();
 ?>
 <head>
@@ -74,6 +75,7 @@ if (isset($_POST["search"]))
     {
     echo $myrow[0].";".$myrow[8].";".$myrow[7].";<br>";
     }    
+    paginate($elems,2,1); //(massive,elems per 1 page , pagenumber to display)
     }
      
 }
