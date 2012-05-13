@@ -43,7 +43,7 @@ CREATE TABLE `items` (
   `owner_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   `price` double NOT NULL,
-  `income_date` date NOT NULL,
+  `income_date` datetime NOT NULL,
   `period` int(11) NOT NULL,
   `description` longtext,
   `manufacturer` text NOT NULL,
