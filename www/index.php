@@ -1,4 +1,5 @@
 <?php
+include "search.php";
 session_start();
 ?>
 <head>
@@ -8,6 +9,18 @@ session_start();
 </head>
 <div id="container">
 <div id="header" align="right">
+    <form action="index.php" method="post">
+        <input type = "text" value = "" name = "search" />
+  
+
+        <select size="3" name="catgr">
+    <option value="3">laptop</option>
+    <option value="2">tv</option>
+    <option value="1">phone</option>
+   </select></p>
+   <p><input type="submit" value="Поиск"></p>
+  </form>
+
 <div id="login" align="left">
 <?php
 if (isset($_SESSION['user_id'])) {
@@ -27,7 +40,6 @@ if (isset($_SESSION['user_id'])) {
 }
 else {
 ?>
-
 <form action="login.php" method="post">
 
     <table>
@@ -46,11 +58,24 @@ else {
         </tr>
     </table>
 </form>
-
 <?php
 }
 ?>
 </div></div>
 <div id="main">
-Main Page!<br><br><br><br><br><br><br>
+Main Page!
+<?php 
+if (isset($_POST["search"]))
+{
+    $searchres = search($_POST["search"], $_POST["catgr"]);
+    if($searchres)
+    {
+    while($myrow = mysql_fetch_array ($searchres))                  
+    {
+    echo $myrow[0].";".$myrow[8].";".$myrow[7].";<br>";
+    }    
+    }
+     
+}
+?>
 </div></div>
