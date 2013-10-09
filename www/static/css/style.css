@@ -1,0 +1,64 @@
+html {
+    background: #fff;
+}
+
+body {
+    margin: 0px;
+    font: 10pt Verdana;
+}
+
+tr {
+    font: 10pt Verdana;
+}
+
+input:focus{
+    outline:none;
+    border-color:rgba(0, 61, 240,.75);
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    box-shadow:0 0 8px rgba(0, 61, 240,.5);
+    -moz-box-shadow:0 0 8px rgba(0, 61, 240,.5);
+    -webkit-box-shadow:0 0 8px rgba(0, 61, 240,.5);
+}
+input{
+    border:1px solid #aaa;
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    transition:border linear .2s,box-shadow linear .2s;
+    -moz-transition:border linear .2s,-moz-box-shadow linear .2s;
+    -webkit-transition:border linear .2s,-webkit-box-shadow linear .2s;
+}
+
+#container {
+    margin: 0px;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+#header {
+    border-top: 4px solid #00CC66;
+    border-bottom: 1px solid #EEE0E5;
+    height: 100px;
+}
+
+#main {
+    padding: 20px 10px 40px 10px;
+    margin-top: 0px;
+}
+
+#container {
+    -moz-box-shadow: 0 3px 10px rgba(0,0,0,0.3); /* Для Firefox */
+    -webkit-box-shadow: 0 3px 10px rgba(0,0,0,0.3); /* Для Safari и Chrome */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3); /* Параметры тени */
+}
+
+#login {
+    width: 300px;
+}
+
+#title {
+    font: 14pt Verdana;
+    color: #666;
+}
